@@ -8,6 +8,13 @@ QUnit.test("Simple content", function(assert) {
   ]);
 });
 
+QUnit.test("Simple markup declaration", function(assert) {
+  var tokens = HTML5Tokenizer.tokenize("<!DOCTYPE html>");
+  assert.deepEqual(tokens, [
+    markupDeclaration("DOCTYPE html")
+  ]);
+});
+
 QUnit.test("A simple tag", function(assert) {
   var tokens = HTML5Tokenizer.tokenize("<div>");
   assert.deepEqual(tokens, [
@@ -277,6 +284,13 @@ function chars(s) {
 function comment(s) {
   return {
     type: "Comment",
+    chars: s || ""
+  };
+}
+
+function markupDeclaration(s) {
+  return {
+    type: "MarkupDeclaration",
     chars: s || ""
   };
 }

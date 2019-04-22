@@ -15,7 +15,6 @@ the [HTML5 Tokenizer Specification][1]:
 
 * Any states involving `CDATA` or `RCDATA`
 * Any states involving `<script>`
-* Any states involving `<DOCTYPE>`
 * The bogus comment state
 
 It also passes through character references, instead of trying to
